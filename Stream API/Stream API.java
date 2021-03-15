@@ -26,7 +26,6 @@ public class StreamAPI {
         try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
             resultMap = br.lines().map(w -> w.split("\\n")).flatMap(Arrays::stream)
                     .map(String::toLowerCase)
-                    //some problems with "антон" the first word in file
                     .map(w -> w
                             .split("[[ ]*|[)]*|[(]*|[\\[]*|[\\]]*|[»]*|[«]*|[…]*|[,]*|[—]*|[;]*|[.]*|[:]*|[/]*|[!]*|[?]*|[+]*]+"))
                     .flatMap(Arrays::stream)
